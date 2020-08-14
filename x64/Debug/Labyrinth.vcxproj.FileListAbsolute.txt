@@ -1,0 +1,2 @@
+D:\My_Programs\Labyrinth\x64\Debug\Labyrinth.exe
+D:\My_Programs\Labyrinth\x64\Debug\Labyrinth.pdb

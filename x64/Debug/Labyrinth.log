@@ -1,0 +1,3 @@
+﻿  Labyrinth.c
+D:\My_Programs\Labyrinth\Labyrinth.c(12,6): warning C4101: 'choice': unreferenced local variable
+  Labyrinth.vcxproj -> D:\My_Programs\Labyrinth\x64\Debug\Labyrinth.exe
