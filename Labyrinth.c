@@ -107,7 +107,7 @@ int Movement (int m_enter, int m_exit)
 {
 	int destination = m_enter + m_exit,
 		m_move;
-	if ((m_enter - m_exit == 0))
+	if (m_enter == m_exit)
 	{m_move = FORWARD;}
 	else if ((destination == 8) || (destination == 12))
 	{m_move = BACK;}
@@ -120,16 +120,16 @@ int Movement (int m_enter, int m_exit)
 // Navigates through the maze
 void Navigation(struct mazedata *playloc)
 {
-	static int stage = 0;			// Keep track of what tumbler in the maze we are working on.
+	//static int stage = 0;			// Keep track of what tumbler in the maze we are working on.
 	int choice = QueryInput();		// Returned variable from the QueryInput function.
-	if (playloc->room == 1)
+	/*if (playloc->room == 1)
 	{
 		stage = 0;
-	}
+	}*/
 	switch (Movement(playloc->direction, choice))
 	{
 	case FORWARD:
-		if (playloc->room < playloc->shape[stage])	// If the player hasn't made it to the first tumbler ...
+		if (playloc->room < playloc->shape[playloc->room])	// If the player hasn't made it to the first tumbler ...
 		{
 			playloc->room++;					// Advance to the next room
 		}
@@ -139,15 +139,15 @@ void Navigation(struct mazedata *playloc)
 		}
 		break;
 	case TURN:
-		if (playloc->room == playloc->shape[stage])
+		if (playloc->room == playloc->shape[playloc->room])
 		{
 			playloc->room++;
-			stage++;
 			playloc->direction = choice;
 		}
 		break;
 	case BACK:
 		playloc->room = 0;
+		break;
 	default:
 		break;
 	}
